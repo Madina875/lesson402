@@ -24,8 +24,15 @@ def func_easy_5(son3: int | float):
         print('musbat son kiritdingiz')
 
 
-def func_medium_1(n: int | float):
-    print(True) if n % 2 == 0 else print(False)
+def func_medium1(son: int) -> bool:
+    dividers = 0
+    for i in range(1, son, +1):
+        if son % i == 0:
+            dividers += 1
+    if dividers == 2:
+        return True
+    else:
+        return False
 
 
 def func_medium_2(n: int | float):
@@ -49,12 +56,20 @@ def func_medium_3(n1: int | float) -> int | float:
 
 # print(func_medium_3(8))
 
+def ekub(a, b):
+    return a if b == 0 else ekub(b, a % b)
 
-def func_medium_4(a: int, b: int) -> int | float:
-    return a % b
+
+# print(ekub(36, 60))
 
 
-# print(func_medium_4(30, 20))
+def ekub2usul(a, b):
+    while b != 0:
+        a, b = b, a % b
+    return a
+
+
+# print(ekub2usul(36, 60))
 
 
 def func_medium_5(a: int, b: int):
@@ -63,42 +78,32 @@ def func_medium_5(a: int, b: int):
 
 # func_medium_5(2, 4)
 
-# 1
+
 w1 = ["22", 4, 3, 5, 1, True, False, "ddd"]
 
+def func1(birlist: list) -> int:
+    butun_sonlarr = list(filter(lambda x: isinstance(x, int) and not isinstance(x, bool), birlist))
+    sum_them = 0
 
-def func_hard_13(llll: list):
-    only_ints = []
-    sumofthem = 0
-    for i in llll:
-        if isinstance(i, int) and not isinstance(i, bool):
-            only_ints.append(i)
-    for l in only_ints:
-        sumofthem += l
+    for i in butun_sonlarr:
+        sum_them += i
 
-    return sumofthem
+    return sum_them
 
+print(func1(w1))
 
-# print(func_hard_13(w1))
-
-# 2
-
-touple_nums = tuple((1, 2, 8, 4, 5, 5.6))
-
-print(touple_nums[::-1])
+touple_nums2 = tuple((1, 2, 8, 4, 5, 5.6))
 
 
 def func2(tn: tuple):
     touple_nums_l = list(tn)
-    b = tuple(filter(map(lambda x: x, touple_nums_l[::-1])))
-    print(b)
+    b = tuple(map(lambda x: x, touple_nums_l[::-1]))
+    return b
 
-    func2(touple_nums)
-
-    # 3
+print(func2(touple_nums2))
 
 
-def func3(aaa: list, bbb: list):
+def telegram3(aaa: list, bbb: list):
     w_set = set(aaa)
     wa_set = set(bbb)
     same_s = set()
@@ -111,20 +116,20 @@ def func3(aaa: list, bbb: list):
 
     a = not_same_s.union(diference)
     bb = same_s.union(same)
-    print(' same:', bb, '\n', 'not same:', a)
+    ddict = {"union": bb, "unique": a}
+    return ddict
 
 
 w = ["22", "22", 4, 3, 5, 1, True, False, "ddd"]
 wa = [9, 'hhh', 7, 3]
 
-# func3(w, wa)
+# print(func3(w, wa))
 
-# 4
 
 www1 = 'sssaaaddffrd'
 
 
-def func4(www: str):
+def telegram4(www: str):
     words_in = set()
     aaa = words_in.union(list(www))
     lss = []
@@ -141,13 +146,10 @@ def func4(www: str):
 
 # func4(www1)
 
-# 5
-
 ls = [1, 2, 3, 4, 5, 3, 2]
 
 
-def func33(aa: list):
+def telegram5(aa: list):
     answer = list(filter(lambda x: x % 3 == 0, aa))
     return list(map(lambda x: x ** 2, answer))
-
 # print(func33(ls))
