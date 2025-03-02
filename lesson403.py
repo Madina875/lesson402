@@ -225,7 +225,7 @@ info = {"name": "Hasan"}
 scores = {"Ali": 78, "Vali": 85}
 
 kkk = scores.get
-print(kkk)
+# print(kkk)
 telegram15(info, scores)
 
 # _________________________________________________________________________________________
@@ -242,4 +242,22 @@ def telegram16(data: dict):
 
 telegram16(data)
 
+# LEETCODE_______________________________________________________________________________________
+
+sss = "hello how are you heeyy"
+
+
+def truncateSentence(s: str, k: int) -> str:
+    list_split = list(s.split())
+    k_count = 0
+    answer = []
+    for i in range(len(list_split)):
+        k_count += 1
+        answer.append(list_split[i])
+        if k_count == k:
+            break
+    return " ".join(answer)
+
+
+print(truncateSentence(sss, 4))
 
